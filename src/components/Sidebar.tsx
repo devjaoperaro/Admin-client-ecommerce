@@ -46,8 +46,10 @@ const Dashboard = styled.div<DashboardProps>`
 
 const DashboardUl = styled.ul`
     padding-left: 40px;
-    color: #555;
+    color: grey;
     list-style-type: none;
+    font-size: 17px;
+    font-weight: 600;
 `;
 
 const DashboardLi = styled.li`
@@ -57,6 +59,8 @@ const DashboardLi = styled.li`
     align-items: center;
     border-radius: 10px;
     padding: 5px;
+    color: black;
+    font-weight: 400;
 
     &:hover {
         background-color: rgb(228, 228, 250);
@@ -66,6 +70,7 @@ const DashboardLi = styled.li`
 const Icon = styled.div`
     margin-right: 5px;
     font-size: 20px;
+    color: gray;
 `;
 
 const Sidebar: React.FC = () => {
