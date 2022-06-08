@@ -47,4 +47,79 @@ export const userData = [
       name: 'Dez',
       'Active User': 1800,
     },
-  ];
+];
+
+
+export const userRows = [
+  {   id: 1, 
+      username: 'Snow Jon', 
+      avatar: 'https://wikiimg.tojsiabtv.com/wikipedia/en/3/30/Jon_Snow_Season_8.png',
+      email: 'jon@gmail.com',
+      status: 'active',
+      transaction: 'R$ 120.00'        
+  },
+  {   id: 2, 
+      username: 'Snow Jon', 
+      avatar: 'https://wikiimg.tojsiabtv.com/wikipedia/en/3/30/Jon_Snow_Season_8.png',
+      email: 'jon@gmail.com',
+      status: 'active',
+      transaction: 'R$ 120.00'        
+  },
+  {   id: 3, 
+      username: 'Snow Jon', 
+      avatar: 'https://wikiimg.tojsiabtv.com/wikipedia/en/3/30/Jon_Snow_Season_8.png',
+      email: 'jon@gmail.com',
+      status: 'active',
+      transaction: 'R$ 120.00'        
+  },
+  {   id: 4, 
+      username: 'Snow Jon', 
+      avatar: 'https://wikiimg.tojsiabtv.com/wikipedia/en/3/30/Jon_Snow_Season_8.png',
+      email: 'jon@gmail.com',
+      status: 'active',
+      transaction: 'R$ 120.00'        
+  },
+  {   id: 5, 
+      username: 'Snow Jon', 
+      avatar: 'https://wikiimg.tojsiabtv.com/wikipedia/en/3/30/Jon_Snow_Season_8.png',
+      email: 'jon@gmail.com',
+      status: 'active',
+      transaction: 'R$ 120.00'        
+  },
+  {   id: 6, 
+      username: 'Snow Jon', 
+      avatar: 'https://wikiimg.tojsiabtv.com/wikipedia/en/3/30/Jon_Snow_Season_8.png',
+      email: 'jon@gmail.com',
+      status: 'active',
+      transaction: 'R$ 120.00'        
+  },
+  {   id: 7, 
+      username: 'Snow Jon', 
+      avatar: 'https://wikiimg.tojsiabtv.com/wikipedia/en/3/30/Jon_Snow_Season_8.png',
+      email: 'jon@gmail.com',
+      status: 'active',
+      transaction: 'R$ 120.00'        
+  },
+  {   id: 8, 
+      username: 'Snow Jon', 
+      avatar: 'https://wikiimg.tojsiabtv.com/wikipedia/en/3/30/Jon_Snow_Season_8.png',
+      email: 'jon@gmail.com',
+      status: 'active',
+      transaction: 'R$ 120.00'        
+  },
+  {   id: 9, 
+      username: 'Snow Jon', 
+      avatar: 'https://wikiimg.tojsiabtv.com/wikipedia/en/3/30/Jon_Snow_Season_8.png',
+      email: 'jon@gmail.com',
+      status: 'active',
+      transaction: 'R$ 120.00'        
+  },
+  {   id: 10, 
+      username: 'Snow Jon', 
+      avatar: 'https://wikiimg.tojsiabtv.com/wikipedia/en/3/30/Jon_Snow_Season_8.png',
+      email: 'jon@gmail.com',
+      status: 'active',
+      transaction: 'R$ 120.00'        
+  },
+  
+];

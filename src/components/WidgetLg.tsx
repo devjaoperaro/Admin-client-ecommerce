@@ -2,6 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import Client2 from '../assets/cliente2.jpg';
 
+
+interface ButtonProps {
+    color: string;
+    back: string;
+}
+
+
 const Container = styled.div`
     flex: 2;
     -webkit-box-shadow: 0px 0px 15px -10px rgba(0,0,0,0.75); 
@@ -11,23 +18,23 @@ const Container = styled.div`
 
 const Title = styled.h1`
     font-weight: 600;
-    margin: 5px 0px 20px 0px;
+    margin: 5px 0px 10px 0px;
 `;
 
 const Table = styled.table`
     width: 100%;
-    border-spacing: 20px;
+    border-spacing: 15px;
 `;
 
 const TableTr = styled.tr`
     display: flex;
     justify-content: space-between;
-    align-items: left;
+    align-items: center;
     padding: 5px;
 `;
 
 const TableTh = styled.th`
-    text-align: center;
+    margin-left: 25px;
 `;
 
 const TableTd = styled.td`
@@ -41,6 +48,7 @@ const Image = styled.img`
     height: 50px;
     border-radius: 50%;
     object-fit: cover;
+    margin-right: 10px;
 `;
 
 const UserName = styled.span`
@@ -52,12 +60,20 @@ const Date = styled.span`
 `;
 
 const Amount = styled.span`
-    
+    text-align: left;
 `;
 
-const Button = styled.button`
-    
+const Button = styled.button<ButtonProps>`
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 7px 10px;
+    background-color: #eeeef7;
+    color: ${props => props.color};
+    background-color: #${props => props.back};
 `;
+
+
 
 const WidgetLg: React.FC = () => {
     return(
@@ -82,7 +98,7 @@ const WidgetLg: React.FC = () => {
                         <Amount>R$ 122,00</Amount>
                     </TableTd>
                     <TableTd>
-                        <Button>Approved</Button>
+                        <Button color={'green'} back='e5faf2'>Approved</Button>
                     </TableTd>
                 </TableTr>
                 <TableTr>
@@ -97,7 +113,7 @@ const WidgetLg: React.FC = () => {
                         <Amount>R$ 122,00</Amount>
                     </TableTd>
                     <TableTd>
-                        <Button>Approved</Button>
+                        <Button color={'red'} back='fff0f1'>Declined</Button>
                     </TableTd>
                 </TableTr>
                 <TableTr>
@@ -112,7 +128,7 @@ const WidgetLg: React.FC = () => {
                         <Amount>R$ 122,00</Amount>
                     </TableTd>
                     <TableTd>
-                        <Button>Approved</Button>
+                        <Button color={'blue'} back='ebf1fe'>Pendding</Button>
                     </TableTd>
                 </TableTr>
                 <TableTr>
@@ -127,7 +143,7 @@ const WidgetLg: React.FC = () => {
                         <Amount>R$ 122,00</Amount>
                     </TableTd>
                     <TableTd>
-                        <Button>Approved</Button>
+                        <Button color={'green'} back='e5faf2'>Approved</Button>
                     </TableTd>
                 </TableTr>
             </Table>

@@ -1,7 +1,8 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
-import Home from './pages/Home';
+import Routes from './routes';
 
 function App() {
   return (
@@ -9,7 +10,9 @@ function App() {
       <Navbar/>
       <div style={styles.container}>
         <Sidebar/>
-        <Home/>
+        <BrowserRouter>
+          <Routes/>
+        </BrowserRouter>
       </div>
     </>
   );

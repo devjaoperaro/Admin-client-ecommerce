@@ -19,6 +19,7 @@ const Title = styled.h1`
 const ListaUL = styled.ul`
     list-style: none;
     padding: 0px;
+    margin-top: 30px;
 `;
 
 const ListaLi = styled.li`
