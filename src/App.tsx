@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
-import Routes from './routes';
+import Routers from './routes';
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <div style={styles.container}>
         <Sidebar/>
         <BrowserRouter>
-          <Routes/>
+          <Routers/>
         </BrowserRouter>
       </div>
     </>

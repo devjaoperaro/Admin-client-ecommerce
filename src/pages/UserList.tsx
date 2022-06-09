@@ -32,8 +32,27 @@ const Button = styled.button`
     margin-right: 20px;
 `;
 
+const ContentDelete = styled.div`
+    cursor: pointer;
+`;
+
+// interface userRowsProps {
+//     id: number;
+//     username: string;
+//     avatar: string;
+//     email: string;
+//     status: string;
+//     transaction: string;
+// };
 
 const UserList: React.FC = () => {
+
+    const [data, setData] = React.useState(userRows);
+
+    const handleDelete = (id: number) => {
+        // filtrar todos e mostrando retirando o diferente
+        setData(data.filter(item => item.id !== id));
+    }
 
     const columns: GridColDef[] = [
         { field: 'id', headerName: 'ID', width: 70 },
@@ -66,8 +85,9 @@ const UserList: React.FC = () => {
                         <Link  to={`/user/${params.row.id}`}>
                             <Button>Editar</Button>
                         </Link>                            
-                
-                        <DeleteIcon color='error' />
+                        <ContentDelete>
+                            <DeleteIcon color='error' onClick={() => handleDelete(params.row.id)}/>
+                        </ContentDelete>
                     </>
                 );
             }
@@ -77,7 +97,7 @@ const UserList: React.FC = () => {
     return (
         <Container>
             <DataGrid
-                rows={userRows}
+                rows={data}
                 columns={columns}
                 pageSize={8}
                 rowsPerPageOptions={[5]}
@@ -89,3 +109,7 @@ const UserList: React.FC = () => {
 };
 
 export default UserList;
+function useState(): [any, any] {
+    throw new Error('Function not implemented.');
+}
+

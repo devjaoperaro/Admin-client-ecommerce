@@ -1,16 +1,23 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import {
+    BrowserRouter,
+    Routes,
+    Route,
+    Link,
+  } from "react-router-dom";
 import Home from '../pages/Home';
+import User from '../pages/User';
 import UserList from '../pages/UserList';
 
 
-const Routes: React.FC = () => {
+const Routers: React.FC = () => {
     return (
-        <Switch>
-            <Route exact path="/" component={Home}/>
-            <Route path="/users" component={UserList}/>
-        </Switch>            
+        <Routes>
+            <Route path="/" element={<Home/>}/>
+            <Route path="/users" element={<UserList/>}/>
+            <Route path="/user/:userId" element={<User/>}/>
+        </Routes>            
     );
 };
 
-export default Routes;
+export default Routers;
