@@ -9,8 +9,8 @@ function App() {
     <>
       <Navbar/>
       <div style={styles.container}>
-        <Sidebar/>
         <BrowserRouter>
+          <Sidebar/>
           <Routers/>
         </BrowserRouter>
       </div>

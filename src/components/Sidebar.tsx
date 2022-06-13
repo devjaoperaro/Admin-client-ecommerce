@@ -12,7 +12,7 @@ import DynamicFeedIcon from '@material-ui/icons/DynamicFeed';
 import ForumIcon from '@material-ui/icons/Forum';
 import WorkIcon from '@material-ui/icons/Work';
 import ReportIcon from '@material-ui/icons/Report';
-import { Link } from 'react-router-dom';
+import { Link, Route, Router } from 'react-router-dom';
 
 interface DashboardProps {
     first: any;
@@ -62,6 +62,7 @@ const DashboardLi = styled.li`
     padding: 5px;
     color: black;
     font-weight: 400;
+    text-decoration: none;
 
     &:hover {
         background-color: rgb(228, 228, 250);
@@ -86,14 +87,12 @@ const Sidebar: React.FC = () => {
                         </Icon>
                         Home
                     </DashboardLi>
-                </DashboardUl>
-                <DashboardUl>
+                    
                     <DashboardLi>
                         <ShowChartIcon />
                         Analytics
                     </DashboardLi>
-                </DashboardUl>
-                <DashboardUl>
+                
                     <DashboardLi>
                         <Icon>
                             <InsightsIcon/>
@@ -105,30 +104,31 @@ const Sidebar: React.FC = () => {
             <Dashboard first>
                 <DashboardUl>
                     Quick Menu
-                    <DashboardLi>
-                        <Icon>
-                            <GroupIcon />
-                        </Icon>
-                        Users
-                    </DashboardLi>
-                </DashboardUl>
-                <DashboardUl>
-                    <DashboardLi>
-                        <Icon>
-                            <StorefrontIcon/>
-                        </Icon>
-                        Products
-                    </DashboardLi>
-                </DashboardUl>
-                <DashboardUl>
+                    <Link to={'/users'} style={{textDecoration: 'none', color: 'inherit'}}>
+                        <DashboardLi>
+                                <Icon>
+                                    <GroupIcon />
+                                </Icon>
+                                Users
+                        </DashboardLi>
+                    </Link>
+                
+                    <Link to={'/product'} style={{textDecoration: 'none', color: 'inherit'}}>
+                        <DashboardLi>
+                            <Icon>
+                                <StorefrontIcon/>
+                            </Icon>
+                            Products
+                        </DashboardLi>
+                    </Link>
+                
                     <DashboardLi>
                         <Icon>
                             <AttachMoneyIcon/>
                         </Icon>
                         Transactions
                     </DashboardLi>
-                </DashboardUl>
-                <DashboardUl>
+            
                     <DashboardLi>
                         <Icon>
                             <BarChartIcon/>
@@ -146,16 +146,14 @@ const Sidebar: React.FC = () => {
                         </Icon>
                         Mail
                     </DashboardLi>
-                </DashboardUl>
-                <DashboardUl>
+                
                     <DashboardLi>
                         <Icon>
                             <DynamicFeedIcon/>
                         </Icon>
                         Feedback
                     </DashboardLi>
-                </DashboardUl>
-                <DashboardUl>
+                
                     <DashboardLi>
                         <Icon>
                             <ForumIcon/>
@@ -173,16 +171,14 @@ const Sidebar: React.FC = () => {
                     </Icon>
                         Menage
                     </DashboardLi>
-                </DashboardUl>
-                <DashboardUl>
+                
                     <DashboardLi>
                         <Icon>
                             <ShowChartIcon />
                         </Icon>
                         Analytics
                     </DashboardLi>
-                </DashboardUl>
-                <DashboardUl>
+                
                     <DashboardLi>
                         <Icon>
                             <ReportIcon/>

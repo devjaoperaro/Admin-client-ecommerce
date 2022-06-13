@@ -2,14 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
 import DeleteIcon from '@material-ui/icons/Delete';
-import {userRows} from '../dummyData';
+import {productRows} from '../../dummyData';
 import { Link } from 'react-router-dom';
 
 const Container = styled.div`
     flex: 4;
 `;
 
-const UsernameDiv = styled.div`
+const ProductNameDiv = styled.div`
     display: flex;
     align-items: center;
 `;
@@ -36,18 +36,10 @@ const ContentDelete = styled.div`
     cursor: pointer;
 `;
 
-// interface userRowsProps {
-//     id: number;
-//     username: string;
-//     avatar: string;
-//     email: string;
-//     status: string;
-//     transaction: string;
-// };
 
-const UserList: React.FC = () => {
-
-    const [data, setData] = React.useState(userRows);
+const ProductList: React.FC = () => {
+    
+    const [data, setData] = React.useState(productRows);
 
     const handleDelete = (id: number) => {
         // filtrar todos e mostrando retirando o diferente
@@ -56,23 +48,26 @@ const UserList: React.FC = () => {
 
     const columns: GridColDef[] = [
         { field: 'id', headerName: 'ID', width: 70 },
-        { field: 'username', headerName: 'Nome', width: 250, renderCell: (params) => {
+        { field: 'product', headerName: 'Produto', width: 250, renderCell: (params) => {
             return (
-                <UsernameDiv>
-                    <Image src={params.row.avatar} alt=""/>
-                    {params.row.username}
-                </UsernameDiv>
+                <ProductNameDiv>
+                    <Image src={params.row.img} alt=""/>
+                    {params.row.name}
+                </ProductNameDiv>
             );
         } },
-        { field: 'email', headerName: 'Email', width: 250 },
+        {   field: 'stock', 
+            headerName: 'Estoque', 
+            width: 250 
+        },
         {
           field: 'status',
           headerName: 'Status',
           width: 150,
         },
         {
-            field: 'transaction',
-            headerName: 'Volume Transação',
+            field: 'price',
+            headerName: 'Preço',
             width: 200,
         },
         {
@@ -82,7 +77,7 @@ const UserList: React.FC = () => {
             renderCell: (params) => {
                 return (
                     <>
-                        <Link  to={`/user/${params.row.id}`}>
+                        <Link  to={`/product/${params.row.id}`}>
                             <Button>Editar</Button>
                         </Link>                            
                         <ContentDelete>
@@ -96,8 +91,9 @@ const UserList: React.FC = () => {
 
     return (
         <Container>
-            <DataGrid
+           <DataGrid
                 rows={data}
+                style={{ fontSize: '17px', color: '#000', padding: '40px' }}
                 columns={columns}
                 pageSize={8}
                 rowsPerPageOptions={[5]}
@@ -106,10 +102,6 @@ const UserList: React.FC = () => {
             />
         </Container>
     );
-};
-
-export default UserList;
-function useState(): [any, any] {
-    throw new Error('Function not implemented.');
 }
 
+export default ProductList;

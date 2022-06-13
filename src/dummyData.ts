@@ -50,6 +50,23 @@ export const userData = [
 ];
 
 
+export const productData = [
+  {
+    name: 'Jan',
+    'Sales': 4000,
+  },
+  {
+    name: 'Fev',
+    'Sales': 5000,
+  },
+  {
+    name: 'Mar',
+    'Sales': 2000,
+  } 
+];
+
+
+
 export const userRows = [
   {   id: 1, 
       username: 'Snow Jon', 
@@ -120,6 +137,80 @@ export const userRows = [
       email: 'jon@gmail.com',
       status: 'active',
       transaction: 'R$ 120.00'        
+  },
+  
+];
+
+export const productRows = [
+  {   id: 1, 
+      name: 'Apple Airpods', 
+      img: 'https://w7.pngwing.com/pngs/914/162/png-transparent-airpods-iphone-7-apple-macbook-headphones-airpod-ipad-technology-tap.png',
+      stock: 123,
+      status: 'ativo',
+      price: 'R$ 120.00'        
+  },
+  {   id: 2, 
+      name: 'Apple Airpods', 
+      img: 'https://w7.pngwing.com/pngs/914/162/png-transparent-airpods-iphone-7-apple-macbook-headphones-airpod-ipad-technology-tap.png',
+      stock: 123,
+      status: 'ativo',
+      price: 'R$ 120.00'        
+  },
+  {   id: 3, 
+      name: 'Apple Airpods', 
+      img: 'https://w7.pngwing.com/pngs/914/162/png-transparent-airpods-iphone-7-apple-macbook-headphones-airpod-ipad-technology-tap.png',
+      stock: 123,
+      status: 'ativo',
+      price: 'R$ 120.00'        
+  },
+  {   id: 4, 
+      name: 'Apple Airpods', 
+      img: 'https://w7.pngwing.com/pngs/914/162/png-transparent-airpods-iphone-7-apple-macbook-headphones-airpod-ipad-technology-tap.png',
+      stock: 123,
+      status: 'ativo',
+      price: 'R$ 120.00'        
+  },
+  {   id: 5, 
+      name: 'Apple Airpods', 
+      img: 'https://w7.pngwing.com/pngs/914/162/png-transparent-airpods-iphone-7-apple-macbook-headphones-airpod-ipad-technology-tap.png',
+      stock: 123,
+      status: 'ativo',
+      price: 'R$ 120.00'        
+  },
+  {   id: 6, 
+      name: 'Apple Airpods', 
+      img: 'https://w7.pngwing.com/pngs/914/162/png-transparent-airpods-iphone-7-apple-macbook-headphones-airpod-ipad-technology-tap.png',
+      stock: 123,
+      status: 'ativo',
+      price: 'R$ 120.00'        
+  },
+  {   id: 7, 
+      name: 'Apple Airpods', 
+      img: 'https://w7.pngwing.com/pngs/914/162/png-transparent-airpods-iphone-7-apple-macbook-headphones-airpod-ipad-technology-tap.png',
+      stock: 123,
+      status: 'ativo',
+      price: 'R$ 120.00'        
+  },
+  {   id: 8, 
+      name: 'Apple Airpods', 
+      img: 'https://w7.pngwing.com/pngs/914/162/png-transparent-airpods-iphone-7-apple-macbook-headphones-airpod-ipad-technology-tap.png',
+      stock: 123,
+      status: 'ativo',
+      price: 'R$ 120.00'        
+  },
+  {   id: 9, 
+      name: 'Apple Airpods', 
+      img: 'https://w7.pngwing.com/pngs/914/162/png-transparent-airpods-iphone-7-apple-macbook-headphones-airpod-ipad-technology-tap.png',
+      stock: 123,
+      status: 'ativo',
+      price: 'R$ 120.00'        
+  },
+  {   id: 10, 
+      name: 'Apple Airpods', 
+      img: 'https://w7.pngwing.com/pngs/914/162/png-transparent-airpods-iphone-7-apple-macbook-headphones-airpod-ipad-technology-tap.png',
+      stock: 123,
+      status: 'ativo',
+      price: 'R$ 120.00'        
   },
   
 ];

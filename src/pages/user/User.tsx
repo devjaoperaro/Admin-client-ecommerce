@@ -2,6 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import UserIcon from '@material-ui/icons/Person';
 import UploadIcon from '@material-ui/icons/CloudUpload';
+import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
+import PhoneIphoneIcon from '@material-ui/icons/PhoneIphone';
+import EmailIcon from '@material-ui/icons/Email';
+import LocationSearchingIcon from '@material-ui/icons/LocationSearching';
+import { Link } from 'react-router-dom';
 
 const Container = styled.div`
     flex: 4;
@@ -89,11 +94,17 @@ const Describe = styled.span`
     display: flex;
     align-items: center;
     margin-bottom: 24px;
-
+    color: #1d1a1a;
+    
     &:last-child {
         margin-bottom: 0px;
     }
 `;
+
+const IconDescribe = styled.span`
+    margin-right: 15px;
+`;
+
 
 
 // WIDGET MAIOR
@@ -133,6 +144,11 @@ const Input = styled.input`
     height: 30px;
     border-bottom: 1px solid #979797;
     margin-bottom: 15px;
+    outline:none;
+
+    &:focus {
+        border-bottom: 2px solid #0E2B47;
+    }
 `;
 
 const Upload = styled.div`
@@ -156,6 +172,7 @@ const ImageUpload = styled.img`
 
 const Icon = styled.span`
     margin-left: 15px;
+    cursor: pointer;
 `;
 
 const ButtonUpdate = styled.button`
@@ -165,6 +182,7 @@ const ButtonUpdate = styled.button`
     color: #ffffff;
     background-color: #0e2b47;
     font-size: 15px;
+    cursor: pointer;
 `;
 
 
@@ -173,7 +191,9 @@ const User: React.FC = () => {
         <Container>
             <Content>
                 <Title>Editar Usuario</Title>
-                <ButtonCreate>Create</ButtonCreate>
+                <Link to={'/newUser'}>
+                    <ButtonCreate>Create</ButtonCreate>
+                </Link>
             </Content>
             <Widget>
                 <WidgetSm>
@@ -187,24 +207,34 @@ const User: React.FC = () => {
                     <DetailsContent>
                         <TitleDatail>Detalhes da conta</TitleDatail>
                         <Describe>
-                            <UserIcon/>
+                            <IconDescribe>
+                                <UserIcon/>
+                            </IconDescribe>
                             annabeck99
                         </Describe>
                         <Describe>
-                            <UserIcon/>
+                            <IconDescribe>
+                                <CalendarTodayIcon/>
+                            </IconDescribe>
                             10.12.1999
                         </Describe>
                         <TitleDatail>Detalhes de contato</TitleDatail>
                         <Describe>
-                            <UserIcon/>
+                            <IconDescribe>
+                                <PhoneIphoneIcon/>
+                            </IconDescribe>
                             (43)98888-8888    
                         </Describe>
                         <Describe>
-                            <UserIcon/>
+                            <IconDescribe>
+                                <EmailIcon/>
+                            </IconDescribe>
                             annabeck99@gmail.com
                         </Describe>
                         <Describe>
-                            <UserIcon/>
+                            <IconDescribe>
+                                <LocationSearchingIcon/>
+                            </IconDescribe>
                             New York | USA
                         </Describe>
                     </DetailsContent>
