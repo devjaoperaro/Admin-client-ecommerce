@@ -11,7 +11,7 @@ const Title = styled.h1`
     font-weight: 600;
 `;
 
-const Form = styled.div`
+const Form = styled.form`
     display: flex;
     flex-wrap: wrap;
 `;

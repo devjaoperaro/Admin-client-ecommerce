@@ -81,13 +81,15 @@ const Sidebar: React.FC = () => {
             <Dashboard first={20}>
                 <DashboardUl>
                     Dashboard
-                    <DashboardLi>
-                        <Icon>
-                            <HomeIcon />
-                        </Icon>
-                        Home
-                    </DashboardLi>
-                    
+
+                    <Link to={'/'} style={{textDecoration: 'none', color: 'inherit'}}>
+                        <DashboardLi>
+                            <Icon>
+                                <HomeIcon />
+                            </Icon>
+                            Home
+                        </DashboardLi>
+                    </Link>
                     <DashboardLi>
                         <ShowChartIcon />
                         Analytics

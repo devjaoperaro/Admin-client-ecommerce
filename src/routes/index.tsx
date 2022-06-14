@@ -11,6 +11,7 @@ import ProductList from '../pages/product/ProductList';
 import User from '../pages/user/User';
 import UserList from '../pages/user/UserList';
 import Product from '../pages/product/Product';
+import NewProduct from '../pages/product/NewProduct';
 
 
 const Routers: React.FC = () => {
@@ -22,7 +23,7 @@ const Routers: React.FC = () => {
             <Route path="/newUser" element={<NewUser/>}/>
             <Route path="/product" element={<ProductList/>}/>
             <Route path="/product/:productId" element={<Product/>}/>
-            <Route path="/newProduct" element={<NewUser/>}/>
+            <Route path="/newProduct" element={<NewProduct/>}/>
         </Routes>            
     );
 };
