@@ -113,7 +113,7 @@ const ProductFormLeft = styled.div`
 `;
 
 const LabelProduct = styled.label`
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     font-weight: 600;
     font-size: 16px;
 `;
@@ -147,6 +147,9 @@ const InputOption = styled.option`
 
 const ProductFormRight = styled.div`
     margin-right: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 `;
 
 const ImageUpload = styled.div`
@@ -222,16 +225,26 @@ const Product: React.FC = () => (
                 <ProductFormLeft>
                     <LabelProduct>Nome do produto</LabelProduct>
                     <InputProduct type='text' placeholder='Apple AirPod'/>
+
+                    <LabelProduct>Descrição</LabelProduct>
+                    <InputProduct type='text' placeholder='Descrição'/>
+                    
+                    <LabelProduct>Preço</LabelProduct>
+                    <InputProduct type='number' placeholder='Preço'/>
+
+                    <LabelProduct>Categoria</LabelProduct>
+                    <InputProduct type='text' placeholder='Camiseta, masculino'/>
+
                     <LabelProduct>Em estoque</LabelProduct>
                     <InputSelect>
                         <InputOption>Sim</InputOption>
                         <InputOption>Não</InputOption>
                     </InputSelect>
-                    <LabelProduct>Ativo</LabelProduct>
+                    {/* <LabelProduct>Ativo</LabelProduct>
                     <InputSelect>
                         <InputOption>Sim</InputOption>
                         <InputOption>Não</InputOption>
-                    </InputSelect>
+                    </InputSelect> */}
                 </ProductFormLeft>
                 <ProductFormRight>
                     <ImageUpload>

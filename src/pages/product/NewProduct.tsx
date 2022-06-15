@@ -83,6 +83,11 @@ const NewProduct: React.FC = () => {
                     <Label>Descrição</Label>
                     <Input type='text'/>
                 </ContentInput>
+                {/* price */}
+                <ContentInput>
+                    <Label>Preço</Label>
+                    <Input type='number'/>
+                </ContentInput>
                 {/* estoque */}
                 <ContentInput>
                     <Label>Estoque</Label>
