@@ -22,9 +22,11 @@ const Container = styled.div`
     flex: 1;
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 98px);
+    height: calc(100vh - 30px);
     background-color: rgb(251, 251, 255);
-    overflow-y: scroll;
+    position: sticky;
+    top: 10px;
+    /* overflow-y: scroll;
     
     ::-webkit-scrollbar {
         width: 10px;
@@ -35,7 +37,7 @@ const Container = styled.div`
     ::-webkit-scrollbar-thumb {
         background: #c7c4c4; 
         border-radius: 10px;
-    }
+    } */
     
 `;
 
@@ -78,7 +80,7 @@ const Icon = styled.div`
 const Sidebar: React.FC = () => {
     return (
         <Container>
-            <Dashboard first={20}>
+            <Dashboard first={10}>
                 <DashboardUl>
                     Dashboard
 

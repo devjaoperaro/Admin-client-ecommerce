@@ -12,19 +12,18 @@ import User from '../pages/user/User';
 import UserList from '../pages/user/UserList';
 import Product from '../pages/product/Product';
 import NewProduct from '../pages/product/NewProduct';
+import AppRoutes from './app.routes';
+import LoginRoutes from './login.routes';
 
 
 const Routers: React.FC = () => {
+
+    const user = false;
+
     return (
-        <Routes>
-            <Route path="/" element={<Home/>}/>
-            <Route path="/users" element={<UserList/>}/>
-            <Route path="/user/:userId" element={<User/>}/>
-            <Route path="/newUser" element={<NewUser/>}/>
-            <Route path="/product" element={<ProductList/>}/>
-            <Route path="/product/:productId" element={<Product/>}/>
-            <Route path="/newProduct" element={<NewProduct/>}/>
-        </Routes>            
+        
+        user ? <AppRoutes/> : <LoginRoutes/> 
+      
     );
 };
 
