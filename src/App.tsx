@@ -7,15 +7,15 @@ import Routers from './routes';
 
 function App() {
 
-  // const user = useSelector((state: any) => state.user);
-  const user = false;
+  const admin = JSON.parse(JSON.parse(localStorage.getItem("persist:root") as any).user).currentUser;
 
+  // const admin = false;
   return (
     <>
-      {user && <Navbar/>}
+      {admin && <Navbar/>}
       <div style={styles.container}>
         <BrowserRouter>
-          {user && <Sidebar/>}
+          {admin && <Sidebar/>}
           <Routers/>
         </BrowserRouter>
       </div>

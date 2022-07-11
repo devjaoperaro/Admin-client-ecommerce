@@ -14,16 +14,17 @@ import Product from '../pages/product/Product';
 import NewProduct from '../pages/product/NewProduct';
 import AppRoutes from './app.routes';
 import LoginRoutes from './login.routes';
+import { useSelector } from 'react-redux';
 
 
 const Routers: React.FC = () => {
 
-    const user = false;
+    const user = JSON.parse(JSON.parse(localStorage.getItem("persist:root") as any).user).currentUser;
+    // const user = false;
 
     return (
         
         user ? <AppRoutes/> : <LoginRoutes/> 
-      
     );
 };
 
