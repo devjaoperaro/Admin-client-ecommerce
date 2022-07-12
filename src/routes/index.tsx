@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
     BrowserRouter,
     Routes,
@@ -19,11 +19,19 @@ import { useSelector } from 'react-redux';
 
 const Routers: React.FC = () => {
 
-    const user = JSON.parse(JSON.parse(localStorage.getItem("persist:root") as any).user).currentUser;
-    // const user = false;
+    // const user = JSON.parse(JSON.parse(localStorage.getItem("persist:root") as any).user).currentUser;
+    const user = useSelector((state: any) => state.user.currentUser);
+    console.log(user, 'aqui');
+
+    
+    // useEffect(() => {
+    //     if(user){
+    //         window.location.href = '/';
+    //     }
+    // }
+    // , [user]);
 
     return (
-        
         user ? <AppRoutes/> : <LoginRoutes/> 
     );
 };

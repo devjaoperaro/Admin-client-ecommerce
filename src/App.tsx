@@ -7,15 +7,27 @@ import Routers from './routes';
 
 function App() {
 
-  const admin = JSON.parse(JSON.parse(localStorage.getItem("persist:root") as any).user).currentUser;
+  const [adminToken, setAdminToken] = React.useState('');
+  
+  const user = useSelector((state: any) => state.user.currentUser);
 
-  // const admin = false;
+  // if(user == null) {
+  //   setAdminToken(JSON.parse(JSON.parse(localStorage.getItem("persist:root") as any).user).currentUser.accessToken);
+  // }else{
+  //   console.log('fazio')
+  // }
+
+  // ambos a mesma coisa
+  // const user = useSelector((state: any) => state.user.currentUser.accessToken);
+
+  console.log(user)
+  
   return (
     <>
-      {admin && <Navbar/>}
+      {user && <Navbar/>}
       <div style={styles.container}>
         <BrowserRouter>
-          {admin && <Sidebar/>}
+          {user && <Sidebar/>}
           <Routers/>
         </BrowserRouter>
       </div>
