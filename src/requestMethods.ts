@@ -1,8 +1,7 @@
 import axios from 'axios';
 
 const BASE_URL = 'http://localhost:5000';
-var TOKEN = JSON.parse(JSON.parse(localStorage.getItem("persist:root")as any)?.user)?.currentUser?.accessToken;
-
+const TOKEN = JSON.parse(localStorage.getItem("persist:root")as any)?.user === undefined ? '' : JSON.parse(JSON.parse(localStorage.getItem("persist:root")as any)?.user)?.currentUser?.accessToken;
 
 
 export const publicRequest = axios.create({

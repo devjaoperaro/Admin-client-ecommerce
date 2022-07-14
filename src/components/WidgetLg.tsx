@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import Client2 from '../assets/cliente2.jpg';
 import { userRequest } from '../requestMethods';
-import { formatDistance, subDays } from 'date-fns'
+import { formatDistance, parseISO  } from 'date-fns';
+import pt from 'date-fns/locale/pt-BR'
 
 interface ButtonProps {
     type: string
@@ -31,10 +32,23 @@ const TableTr = styled.tr`
     justify-content: space-between;
     align-items: center;
     padding: 5px;
+
+    &:nth-child(even) {
+        background-color: #f2f2f2;
+    }
 `;
 
 const TableTh = styled.th`
-    margin-left: 25px;
+
+    &:first-child {
+        margin-left: 40px;
+    }
+    &:nth-child(2) {
+        margin-left: 100px;
+    }
+    &:nth-child(3) {
+        margin-left: 40px;
+    }
 `;
 
 const TableTd = styled.td`
@@ -55,7 +69,7 @@ const UserName = styled.span`
     text-align: left;
 `;
 
-const Date = styled.span`
+const CreateData = styled.span`
     text-align: left;
 `;
 
@@ -103,67 +117,25 @@ const WidgetLg: React.FC = () => {
                     <TableTh>Status</TableTh>
                 </TableTr>
                 { orders.map((item: any) => (
-                    <TableTr>
+                    <TableTr key={item._id}>
                         <TableTd>
                             {/* <Image src={Client2}/> */}
                             <UserName>{item.userId}</UserName>
                         </TableTd>
                         <TableTd>
-                            <Date>{item.createdAt}</Date>
+                            <CreateData>{ formatDistance(parseISO(item.createdAt), new Date(), {
+                            locale: pt,
+                            addSuffix: true
+                        }) }</CreateData>
                         </TableTd>
                         <TableTd>
-                            <Amount>R$ {item.amount}</Amount>
+                            <Amount>R$ {item.amount},00</Amount>
                         </TableTd>
                         <TableTd>
                             <Button type={item.status}>{item.status}</Button>
                         </TableTd>
                     </TableTr>
                 ))}
-                {/* <TableTr>
-                    <TableTd>
-                        <Image src={Client2}/>
-                        <UserName>Susan Carol</UserName>
-                    </TableTd>
-                    <TableTd>
-                        <Date>2 Jun 2022</Date>
-                    </TableTd>
-                    <TableTd>
-                        <Amount>R$ 122,00</Amount>
-                    </TableTd>
-                    <TableTd>
-                        <Button color={'red'} back='fff0f1'>Declined</Button>
-                    </TableTd>
-                </TableTr>
-                <TableTr>
-                    <TableTd>
-                        <Image src={Client2}/>
-                        <UserName>Susan Carol</UserName>
-                    </TableTd>
-                    <TableTd>
-                        <Date>2 Jun 2022</Date>
-                    </TableTd>
-                    <TableTd>
-                        <Amount>R$ 122,00</Amount>
-                    </TableTd>
-                    <TableTd>
-                        <Button color={'blue'} back='ebf1fe'>Pendding</Button>
-                    </TableTd>
-                </TableTr>
-                <TableTr>
-                    <TableTd>
-                        <Image src={Client2}/>
-                        <UserName>Susan Carol</UserName>
-                    </TableTd>
-                    <TableTd>
-                        <Date>2 Jun 2022</Date>
-                    </TableTd>
-                    <TableTd>
-                        <Amount>R$ 122,00</Amount>
-                    </TableTd>
-                    <TableTd>
-                        <Button color={'green'} back='e5faf2'>Approved</Button>
-                    </TableTd>
-                </TableTr> */}
             </Table>
         </Container>
     );
