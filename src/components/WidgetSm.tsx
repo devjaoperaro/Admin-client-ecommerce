@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import RemoveRedEyeIcon from '@material-ui/icons/RemoveRedEye';
 import Client from '../assets/client.jpg';
+import { userRequest } from '../requestMethods';
 
 const Container = styled.div`
     flex: 1;
@@ -27,6 +28,7 @@ const ListaLi = styled.li`
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    padding: 0px 20px;
 `;
 
 const Image = styled.img`
@@ -70,45 +72,38 @@ const Icon = styled.span`
 `;
 
 const WidgetSm: React.FC = () => {
+    
+    const [ users, setUsers ] = React.useState<any[]>([]);
+
+    useEffect(() => {
+        const getUsers = async () => {
+            try {
+                const response = await userRequest.get('/user/find/?new=true');
+                setUsers(response.data);
+                
+            } catch (error) {
+                console.log(error)                
+            }
+        }
+        getUsers();
+    }, []);
+
     return(
         <Container>
             <Title>New Join Members</Title>
             <ListaUL>
-                <ListaLi>
-                    <Image src={Client}/>
-                    <WidgetUserMember>
-                        <UserName>Bianca Freire</UserName>
-                        <UserTitle>Desenvolvedor de Software</UserTitle>
-                    </WidgetUserMember>
-                    <Button>
-                        <RemoveRedEyeIcon/>
-                        Display
-                    </Button>
-                </ListaLi>
-                <ListaLi>
-                    <Image src={Client}/>
-                    <WidgetUserMember>
-                        <UserName>Bianca Freire</UserName>
-                        <UserTitle>Desenvolvedor de Software</UserTitle>
-                    </WidgetUserMember>
-                    <Button>
-                        <RemoveRedEyeIcon/>
-                        Display
-                    </Button>
-                </ListaLi>
-                <ListaLi>
-                    <Image src={Client}/>
-                    <WidgetUserMember>
-                        <UserName>Bianca Freire</UserName>
-                        <UserTitle>Desenvolvedor de Software</UserTitle>
-                    </WidgetUserMember>
-                    <Button>
-                        <Icon>
+                {users?.map((item: any) => (
+                    <ListaLi key={item._id}>
+                        <Image src={item.img || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ71Tc9Tk2q1eJUUlX1bXhWrc0-g8O9xnAplw&usqp=CAU'}/>
+                        <WidgetUserMember>
+                            <UserName>{item.username}</UserName>
+                        </WidgetUserMember>
+                        <Button>
                             <RemoveRedEyeIcon/>
-                        </Icon>
-                        Display
-                    </Button>
-                </ListaLi>
+                            Display
+                        </Button>
+                    </ListaLi>
+                ))}
             </ListaUL>
         </Container>
     );

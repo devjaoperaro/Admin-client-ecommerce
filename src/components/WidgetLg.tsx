@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import Client2 from '../assets/cliente2.jpg';
-
+import { userRequest } from '../requestMethods';
+import { formatDistance, subDays } from 'date-fns'
 
 interface ButtonProps {
-    color: string;
-    back: string;
+    type: string
 }
 
 
@@ -69,13 +69,29 @@ const Button = styled.button<ButtonProps>`
     cursor: pointer;
     padding: 7px 10px;
     background-color: #eeeef7;
-    color: ${props => props.color};
-    background-color: #${props => props.back};
+    color: ${props => props.type as string === 'Pendente' ? '#ffffff' : '#0aa50a'};
+    background-color: #${props => props.type as string === 'Pendente' ? 'f36871' : 'e5faf2'};
 `;
 
 
 
 const WidgetLg: React.FC = () => {
+
+    const [ orders, setOrders ] = React.useState<any[]>([]);
+
+    useEffect(() => {
+        const getOrders = async () => {
+            try {
+                const response = await userRequest.get('/order/find');
+                setOrders(response.data);
+                
+            } catch (error) {
+                console.log(error)                
+            }
+        }
+        getOrders();
+    }, []);
+
     return(
         <Container>
             <Title>Ultimas Transações</Title>
@@ -86,22 +102,24 @@ const WidgetLg: React.FC = () => {
                     <TableTh>Amount</TableTh>
                     <TableTh>Status</TableTh>
                 </TableTr>
-                <TableTr>
-                    <TableTd>
-                        <Image src={Client2}/>
-                        <UserName>Susan Carol</UserName>
-                    </TableTd>
-                    <TableTd>
-                        <Date>2 Jun 2022</Date>
-                    </TableTd>
-                    <TableTd>
-                        <Amount>R$ 122,00</Amount>
-                    </TableTd>
-                    <TableTd>
-                        <Button color={'green'} back='e5faf2'>Approved</Button>
-                    </TableTd>
-                </TableTr>
-                <TableTr>
+                { orders.map((item: any) => (
+                    <TableTr>
+                        <TableTd>
+                            {/* <Image src={Client2}/> */}
+                            <UserName>{item.userId}</UserName>
+                        </TableTd>
+                        <TableTd>
+                            <Date>{item.createdAt}</Date>
+                        </TableTd>
+                        <TableTd>
+                            <Amount>R$ {item.amount}</Amount>
+                        </TableTd>
+                        <TableTd>
+                            <Button type={item.status}>{item.status}</Button>
+                        </TableTd>
+                    </TableTr>
+                ))}
+                {/* <TableTr>
                     <TableTd>
                         <Image src={Client2}/>
                         <UserName>Susan Carol</UserName>
@@ -145,7 +163,7 @@ const WidgetLg: React.FC = () => {
                     <TableTd>
                         <Button color={'green'} back='e5faf2'>Approved</Button>
                     </TableTd>
-                </TableTr>
+                </TableTr> */}
             </Table>
         </Container>
     );

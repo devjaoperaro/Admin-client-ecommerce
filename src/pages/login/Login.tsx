@@ -1,11 +1,15 @@
 import react from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import Styled from 'styled-components';
 import { login } from '../../redux/apiCalls';
 
 
 type PropsBtn = {
     onClick: string;
+}
+type PropsForm = {
+    afterSubmit: any;
 }
 
 const Container = Styled.div`
@@ -30,7 +34,9 @@ const Title = Styled.h1`
     color: #62ee17;
 `;
 
-const Form = Styled.form`
+const Form = Styled.form.attrs((props: PropsForm) => ({
+    afterSubmit: props.afterSubmit,
+}))<PropsForm>`
     display: flex;
     flex-direction: column;
 `;
@@ -102,8 +108,12 @@ const Login: React.FC = () => {
 
     const dispatch = useDispatch();
 
+    const navigate = useNavigate()
+
     const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
+        navigate('/');
 
         // console.log(username, password);
         login(dispatch, {username, password})

@@ -6,28 +6,16 @@ import Sidebar from './components/Sidebar';
 import Routers from './routes';
 
 function App() {
-
-  const [adminToken, setAdminToken] = React.useState('');
   
-  const user = useSelector((state: any) => state.user.currentUser);
+  const admin = useSelector((state: any) => state.user.currentUser?.isAdmin);
 
-  // if(user == null) {
-  //   setAdminToken(JSON.parse(JSON.parse(localStorage.getItem("persist:root") as any).user).currentUser.accessToken);
-  // }else{
-  //   console.log('fazio')
-  // }
 
-  // ambos a mesma coisa
-  // const user = useSelector((state: any) => state.user.currentUser.accessToken);
-
-  console.log(user)
-  
   return (
     <>
-      {user && <Navbar/>}
+      {admin && <Navbar/>}
       <div style={styles.container}>
         <BrowserRouter>
-          {user && <Sidebar/>}
+          {admin && <Sidebar/>}
           <Routers/>
         </BrowserRouter>
       </div>
